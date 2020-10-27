@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
         _jumpTrigger = Animator.StringToHash("Jump");
 
         _transform = transform;
-
+        
         var localScale = _transform.localScale;
         _leftScale = localScale;
         _leftScale.x = -_leftScale.x;
@@ -34,6 +34,8 @@ public class CharacterController : MonoBehaviour
         _rightScale = localScale;
     }
 
+    
+    // A/D - movement, Space - jump, C - crouch
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -44,12 +46,12 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             _animator.SetInteger(_walkSpeed, 1);
-            _transform.localScale = _leftScale;
+            _transform.localScale = _leftScale;         // Turn character in walk direction
         }
         else if (Input.GetKey(KeyCode.D))
         {
             _animator.SetInteger(_walkSpeed, 1);
-            _transform.localScale = _rightScale;
+            _transform.localScale = _rightScale;         // Turn character in walk direction
         }
         else
         {
